@@ -13,9 +13,9 @@ const ParticleNetwork = () => {
   const isScrolling = useRef(false);
   const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
 
-  const particleCount = 120;
-  const maxDistance = 1.8;
-  const size = 12;
+  const particleCount = 180;
+  const maxDistance = 2.2;
+  const size = 10;
 
   const { particles, positions, colors, linesGeometry } = useMemo(() => {
     const particles = [];
@@ -121,8 +121,8 @@ const ParticleNetwork = () => {
           const alpha = Math.max(0, 1.0 - Math.sqrt(distSq) / maxDistance);
           
           lineColors.push(
-            colorAttr.getX(i), colorAttr.getY(i), colorAttr.getZ(i), alpha * 0.9,
-            colorAttr.getX(j), colorAttr.getY(j), colorAttr.getZ(j), alpha * 0.9
+            colorAttr.getX(i), colorAttr.getY(i), colorAttr.getZ(i), alpha * 0.8,
+            colorAttr.getX(j), colorAttr.getY(j), colorAttr.getZ(j), alpha * 0.8
           );
         }
       }
