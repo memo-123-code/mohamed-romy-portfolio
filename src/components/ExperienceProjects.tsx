@@ -139,10 +139,10 @@ export default function ExperienceProjects() {
             return (
               <motion.div 
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 50, rotateX: 15, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
                 viewport={{ once: false, amount: 0.15 }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
+                transition={{ type: "spring", stiffness: 60, damping: 20, delay: index * 0.1 }}
                 className={`relative flex flex-col md:flex-row ${isEven ? 'md:flex-row-reverse' : ''} items-center w-full pl-8 md:pl-0`}
               >
                 {/* Node */}

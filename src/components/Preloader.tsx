@@ -29,7 +29,7 @@ export default function Preloader() {
           className="fixed inset-0 z-[99999] bg-[#020202] flex items-center justify-center overflow-hidden"
         >
           <motion.div 
-            className="text-4xl md:text-6xl font-bold tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-white to-gray-500"
+            className="hidden md:block text-4xl md:text-6xl font-bold tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-white to-gray-500"
             initial={{ opacity: 0, filter: "blur(10px)", scale: 0.95 }}
             animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
