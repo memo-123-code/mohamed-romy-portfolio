@@ -77,7 +77,7 @@ export default function CertificationsGallery() {
                       src={cert.images[0]} 
                       alt={cert.name} 
                       fill 
-                      className="object-cover opacity-70 group-hover/image:opacity-100 group-hover/image:scale-110 transition-all duration-700" 
+                      className="object-contain p-2 opacity-90 group-hover/image:opacity-100 group-hover/image:scale-105 transition-all duration-700" 
                     />
                   </div>
 
@@ -123,7 +123,7 @@ export default function CertificationsGallery() {
                       src={cert.images[0]} 
                       alt={cert.name} 
                       fill 
-                      className="object-cover opacity-70 group-hover/image:opacity-100 group-hover/image:scale-110 transition-all duration-700" 
+                      className="object-contain p-2 opacity-90 group-hover/image:opacity-100 group-hover/image:scale-105 transition-all duration-700"
                     />
                   </div>
 

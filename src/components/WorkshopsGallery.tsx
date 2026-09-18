@@ -113,7 +113,7 @@ export default function WorkshopsGallery() {
                       src={workshop.images[0]} 
                       alt={workshop.name} 
                       fill 
-                      className="object-cover opacity-70 group-hover/image:opacity-100 group-hover/image:scale-110 transition-all duration-700" 
+                      className="object-contain p-2 opacity-90 group-hover/image:opacity-100 group-hover/image:scale-105 transition-all duration-700"
                     />
                   </div>
 

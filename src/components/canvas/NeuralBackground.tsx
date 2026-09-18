@@ -121,8 +121,8 @@ const ParticleNetwork = () => {
           const alpha = Math.max(0, 1.0 - Math.sqrt(distSq) / maxDistance);
           
           lineColors.push(
-            colorAttr.getX(i), colorAttr.getY(i), colorAttr.getZ(i), alpha * 0.5,
-            colorAttr.getX(j), colorAttr.getY(j), colorAttr.getZ(j), alpha * 0.5
+            colorAttr.getX(i), colorAttr.getY(i), colorAttr.getZ(i), alpha * 0.9,
+            colorAttr.getX(j), colorAttr.getY(j), colorAttr.getZ(j), alpha * 0.9
           );
         }
       }
@@ -169,10 +169,10 @@ const ParticleNetwork = () => {
           />
         </bufferGeometry>
         <pointsMaterial
-          size={0.12}
+          size={0.06}
           vertexColors
           transparent
-          opacity={1.0}
+          opacity={0.8}
           sizeAttenuation
           blending={THREE.AdditiveBlending}
         />
