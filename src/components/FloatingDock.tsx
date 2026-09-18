@@ -101,6 +101,9 @@ export default function FloatingDock() {
               </span>
             </motion.a>
           );
+        })}
+      </motion.div>
+
       {/* Mobile Floating Hamburger */}
       <motion.button
         initial={{ scale: 0 }}
