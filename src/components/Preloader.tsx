@@ -26,7 +26,7 @@ export default function Preloader() {
           initial={{ y: 0 }}
           exit={{ y: "-100vh" }}
           transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
-          className="fixed inset-0 z-[99999] bg-[#020202] flex items-center justify-center overflow-hidden"
+          className="hidden md:flex fixed inset-0 z-[99999] bg-[#020202] items-center justify-center overflow-hidden"
         >
           <motion.div 
             className="hidden md:block text-4xl md:text-6xl font-bold tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-r from-gray-500 via-white to-gray-500"

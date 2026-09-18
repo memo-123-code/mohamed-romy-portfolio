@@ -87,6 +87,14 @@ export default function ExperienceProjects() {
       </motion.div>
 
       <div ref={containerRef} className="relative md:mx-auto">
+        {/* Mobile Snake Line (Draws downwards on scroll) */}
+        <div className="block md:hidden absolute left-[1px] top-0 bottom-0 w-[2px] bg-white/5 z-0">
+          <motion.div 
+            className="w-full bg-gradient-to-b from-neon-cyan via-neon-purple to-neon-cyan drop-shadow-[0_0_8px_rgba(0,243,255,0.8)]"
+            style={{ height: useTransform(scrollYProgress, [0, 1], ["0%", "100%"]) }}
+          />
+        </div>
+
         {/* Central Snake SVG Line for desktop */}
         <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-12 transform -translate-x-1/2 pointer-events-none">
           <svg className="w-full h-full overflow-visible" viewBox="0 0 100 1000" preserveAspectRatio="none">

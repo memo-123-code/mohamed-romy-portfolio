@@ -117,7 +117,8 @@ export default function Home() {
           {/* Profile Image with Spinning & Pulsing Glow */}
           <motion.div 
             variants={itemVariants} 
-            className="relative w-32 h-32 md:w-40 md:h-40 mb-4 group perspective-1000"
+            whileTap={{ scale: 1.5, zIndex: 50 }}
+            className="relative w-32 h-32 md:w-40 md:h-40 mb-4 group perspective-1000 cursor-pointer"
             style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
           >
             <motion.div 

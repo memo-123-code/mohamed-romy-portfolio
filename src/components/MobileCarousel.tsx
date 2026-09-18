@@ -36,6 +36,11 @@ export default function MobileCarousel({ children }: { children: React.ReactNode
         ))}
       </div>
       
+      {/* Badge Overlay */}
+      <div className="absolute top-6 right-4 z-30 px-3 py-1 rounded-full glass bg-black/60 backdrop-blur-md border border-white/10 text-white text-xs font-bold shadow-[0_0_15px_rgba(0,243,255,0.2)] pointer-events-none">
+        {activeIndex + 1} / {children.length}
+      </div>
+
       {/* Pagination & Arrows Container */}
       <div className="flex items-center justify-between px-6 mt-4">
         {/* Left Arrow */}
