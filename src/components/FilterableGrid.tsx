@@ -87,7 +87,7 @@ export default function FilterableGrid() {
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
                 viewport={{ once: false, amount: 0.15 }}
-                className={`snap-center shrink-0 w-[85vw] md:w-auto h-full ${isFeaturedProject ? "md:col-span-2 lg:col-span-2 row-span-2" : "col-span-1"}`}
+                className={`snap-center shrink-0 flex-none w-[85vw] max-w-[85vw] md:max-w-none md:w-auto h-full ${isFeaturedProject ? "md:col-span-2 lg:col-span-2 row-span-2" : "col-span-1"}`}
               >
                 <TiltCard className="h-full">
                   <div className="glass-card animated-border rounded-3xl p-1 relative overflow-hidden group transition-all duration-500 h-full flex flex-col bg-black/60 backdrop-blur-2xl md:bg-[#050505]/90 md:backdrop-blur-none active:scale-95 hover:shadow-[0_0_30px_rgba(0,243,255,0.15)]" style={{ transformStyle: "preserve-3d" }}>

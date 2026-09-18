@@ -79,7 +79,9 @@ const ParticleNetwork = () => {
 
   useFrame((state) => {
     if (!pointsRef.current || !linesRef.current || !groupRef.current) return;
-    if (isScrolling.current) return; // Completely skip physics updates while scrolling for massive performance boost
+    
+    // Only throttle on desktop to prevent massive frame drops, allow smooth mobile animation
+    if (typeof window !== 'undefined' && window.innerWidth > 768 && isScrolling.current) return;
 
     const positionsAttr = pointsRef.current.geometry.attributes.position;
     
