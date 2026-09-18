@@ -16,9 +16,11 @@ import CertificationsGallery from "@/components/CertificationsGallery";
 import WorkshopsGallery from "@/components/WorkshopsGallery";
 import CircuitLine from "@/components/CircuitLine";
 import MagneticElement from "@/components/MagneticElement";
+import { useLightbox } from "@/components/LightboxProvider";
 
 export default function Home() {
   const { personal } = portfolioData;
+  const { openLightbox } = useLightbox();
 
   // 3D Profile Tracking
   const mouseX = useMotionValue(0);
@@ -117,7 +119,9 @@ export default function Home() {
           {/* Profile Image with Spinning & Pulsing Glow */}
           <motion.div 
             variants={itemVariants} 
-            whileTap={{ scale: 1.5, zIndex: 50 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => openLightbox(["/images/profile.jpg"], 0, "Mohamed Ahmed Romy")}
+            onContextMenu={(e) => e.preventDefault()}
             className="relative w-32 h-32 md:w-40 md:h-40 mb-4 group perspective-1000 cursor-pointer"
             style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
           >

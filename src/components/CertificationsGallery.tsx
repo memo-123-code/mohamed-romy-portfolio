@@ -127,6 +127,12 @@ export default function CertificationsGallery() {
                     />
                   </div>
 
+                  {/* Image Count Badge */}
+                  <div className="absolute top-2 right-2 z-30 px-2 py-1 rounded-md glass bg-black/60 backdrop-blur-md border border-white/10 text-white text-[10px] font-bold shadow-[0_0_10px_rgba(0,243,255,0.2)] pointer-events-none flex items-center gap-1">
+                    <Images className="w-3 h-3" />
+                    {cert.images.length}
+                  </div>
+
                   {/* View Gallery Overlay */}
                   <div 
                     className="absolute inset-0 z-20 flex items-center justify-center bg-black/60 opacity-0 group-hover/image:opacity-100 transition-opacity cursor-pointer backdrop-blur-sm"
