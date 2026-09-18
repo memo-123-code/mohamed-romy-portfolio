@@ -23,31 +23,31 @@ export const portfolioData = {
   projects: [
     {
       title: "QuickHandy",
-      category: "WEB DEV",
+      category: "Web Dev",
       description: "A comprehensive digital platform for maintenance and home services. Features real-time tracking, live dispatch engines, and secure eKYC logic for service providers.",
       images: ["/images/quickhandy.jpeg"]
     },
     {
       title: "Cortex",
-      category: "WEB DEV",
+      category: "Web Dev",
       description: "A professional digital transformation and business operations system designed for advanced operational tracking and ecosystem management.",
       images: ["/images/cortex.png"]
     },
     {
       title: "Unified Mechatronics System Platform (ZNUE-Portal)",
-      category: "WEB DEV",
+      category: "Web Dev",
       description: "A high-availability portal for mechatronics students utilizing Django 5.2, Redis/Celery task queues, and an integrated AI RAG system.",
       images: ["/images/znue-portal.jpeg"]
     },
     {
       title: "Mechatronics Data",
-      category: "WEB DEV",
+      category: "Web Dev",
       description: "An academic assistance and curriculum guide platform tailored specifically for Mechatronics Engineering students at Zagazig National University.",
       images: ["/images/mechatronics-data.jpeg"]
     },
     {
       title: "Romex Smart Home",
-      category: "AUTOMATION",
+      category: "Web Dev",
       description: "A comprehensive IoT smart home dashboard monitoring indoor climate, device status, overall security, and daily energy consumption.",
       images: ["/images/romex.jpeg"]
     }

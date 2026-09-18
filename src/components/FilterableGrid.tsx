@@ -16,6 +16,7 @@ export default function FilterableGrid() {
   // Dynamically extract categories from data to prevent empty states
   const uniqueCategories = Array.from(new Set(projects.map(p => p.category)));
   const tabs: string[] = ["All", ...uniqueCategories];
+  const showTabs = uniqueCategories.length > 1;
 
   const allItems = projects.map(p => ({
     ...p,
@@ -42,29 +43,31 @@ export default function FilterableGrid() {
           </div>
         </h2>
         
-        {/* Swipeable Filter Chips */}
-        <div className="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory gap-3 pb-4 w-[100vw] md:w-full justify-start md:justify-center px-6 md:px-0" style={{ WebkitOverflowScrolling: 'touch' }}>
-          {tabs.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`snap-center shrink-0 relative px-6 py-2.5 rounded-full text-sm font-bold tracking-wide transition-all duration-300 ${
-                activeTab === tab 
-                ? "text-white shadow-[0_0_20px_rgba(0,243,255,0.2)]" 
-                : "glass bg-black/40 text-gray-400 hover:text-white border border-white/5"
-              }`}
-            >
-              {activeTab === tab && (
-                <motion.div
-                  layoutId="activeTabGrid"
-                  className="absolute inset-0 bg-gradient-to-r from-neon-cyan/20 to-neon-purple/20 border border-white/20 rounded-full"
-                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                />
-              )}
-              <span className="relative z-10">{tab}</span>
-            </button>
-          ))}
-        </div>
+        {/* Swipeable Filter Chips (Hidden if only one category exists) */}
+        {showTabs && (
+          <div className="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory gap-3 pb-4 w-[100vw] md:w-full justify-start md:justify-center px-6 md:px-0" style={{ WebkitOverflowScrolling: 'touch' }}>
+            {tabs.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`snap-center shrink-0 relative px-6 py-2.5 rounded-full text-sm font-bold tracking-wide transition-all duration-300 ${
+                  activeTab === tab 
+                  ? "text-white shadow-[0_0_20px_rgba(0,243,255,0.2)]" 
+                  : "glass bg-black/40 text-gray-400 hover:text-white border border-white/5"
+                }`}
+              >
+                {activeTab === tab && (
+                  <motion.div
+                    layoutId="activeTabGrid"
+                    className="absolute inset-0 bg-gradient-to-r from-neon-cyan/20 to-neon-purple/20 border border-white/20 rounded-full"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10">{tab}</span>
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       <motion.div 
