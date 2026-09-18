@@ -8,23 +8,19 @@ import TiltCard from "./TiltCard";
 import { ExternalLink, BadgeCheck, FolderGit2, Images } from "lucide-react";
 import { useLightbox } from "./LightboxProvider";
 
-type Tab = "All" | "Web Dev" | "Mechanical" | "Automation";
-
 export default function FilterableGrid() {
-  const [activeTab, setActiveTab] = useState<Tab>("All");
+  const [activeTab, setActiveTab] = useState<string>("All");
   const { openLightbox } = useLightbox();
   const { projects } = portfolioData;
 
-  // Add categories based on keywords
-  const allItems = [
-    ...projects.map(p => ({
-      ...p,
-      type: "project",
-      category: p.title.includes("Django") || p.description.includes("Django") ? "Web Dev" : "Automation"
-    }))
-  ];
+  // Dynamically extract categories from data to prevent empty states
+  const uniqueCategories = Array.from(new Set(projects.map(p => p.category)));
+  const tabs: string[] = ["All", ...uniqueCategories];
 
-  const tabs: Tab[] = ["All", "Web Dev", "Mechanical", "Automation"];
+  const allItems = projects.map(p => ({
+    ...p,
+    type: "project"
+  }));
 
   const filteredItems = allItems.filter(
     (item) => activeTab === "All" || item.category === activeTab
@@ -36,10 +32,9 @@ export default function FilterableGrid() {
         <h2 className="text-3xl md:text-6xl font-bold mb-8 text-transparent bg-clip-text text-gradient">
           <div className="overflow-hidden inline-block py-2">
             <motion.span
-              initial={{ y: "100%", opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.1 }}
-              viewport={{ once: false }}
+              viewport={{ once: true, margin: "-50px" }}
               className="inline-block"
             >
               Selected Work
@@ -47,20 +42,22 @@ export default function FilterableGrid() {
           </div>
         </h2>
         
-        {/* Filter Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 md:gap-4 p-2 glass-card rounded-full border border-white/5">
+        {/* Swipeable Filter Chips */}
+        <div className="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory gap-3 pb-4 w-[100vw] md:w-full justify-start md:justify-center px-6 md:px-0" style={{ WebkitOverflowScrolling: 'touch' }}>
           {tabs.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`relative px-6 py-2 rounded-full text-sm font-medium transition-colors ${
-                activeTab === tab ? "text-white" : "text-gray-400 hover:text-white"
+              className={`snap-center shrink-0 relative px-6 py-2.5 rounded-full text-sm font-bold tracking-wide transition-all duration-300 ${
+                activeTab === tab 
+                ? "text-white shadow-[0_0_20px_rgba(0,243,255,0.2)]" 
+                : "glass bg-black/40 text-gray-400 hover:text-white border border-white/5"
               }`}
             >
               {activeTab === tab && (
                 <motion.div
-                  layoutId="activeTab"
-                  className="absolute inset-0 bg-white/10 border border-white/20 rounded-full"
+                  layoutId="activeTabGrid"
+                  className="absolute inset-0 bg-gradient-to-r from-neon-cyan/20 to-neon-purple/20 border border-white/20 rounded-full"
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 />
               )}
@@ -86,7 +83,7 @@ export default function FilterableGrid() {
                 whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ type: "spring", stiffness: 60, damping: 20, delay: index * 0.1 }}
-                viewport={{ once: false, amount: 0.15 }}
+                viewport={{ once: true, margin: "-50px" }}
                 className={`h-full w-full ${isFeaturedProject ? "md:col-span-2 lg:col-span-2 row-span-2" : "col-span-1"}`}
               >
                 <TiltCard className="h-full">
