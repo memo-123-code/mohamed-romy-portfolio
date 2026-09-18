@@ -13,8 +13,8 @@ const ParticleNetwork = () => {
   const isScrolling = useRef(false);
   const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
 
-  const particleCount = 60;
-  const maxDistance = 2.2;
+  const particleCount = 120;
+  const maxDistance = 1.8;
   const size = 12;
 
   const { particles, positions, colors, linesGeometry } = useMemo(() => {
@@ -36,9 +36,9 @@ const ParticleNetwork = () => {
 
       particles.push({
         velocity: new THREE.Vector3(
-          (Math.random() - 0.5) * 0.015,
-          (Math.random() - 0.5) * 0.015,
-          (Math.random() - 0.5) * 0.015
+          (Math.random() - 0.5) * 0.005,
+          (Math.random() - 0.5) * 0.005,
+          (Math.random() - 0.5) * 0.005
         )
       });
 
@@ -172,7 +172,7 @@ const ParticleNetwork = () => {
           size={0.08}
           vertexColors
           transparent
-          opacity={0.8}
+          opacity={0.9}
           sizeAttenuation
           blending={THREE.AdditiveBlending}
         />

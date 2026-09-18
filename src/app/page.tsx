@@ -114,12 +114,17 @@ export default function Home() {
           initial="hidden"
           animate="visible"
         >
-          {/* Profile Image with Spinning Glow & 3D Tracking */}
+          {/* Profile Image with Spinning & Pulsing Glow */}
           <motion.div 
             variants={itemVariants} 
             className="relative w-32 h-32 md:w-40 md:h-40 mb-4 group perspective-1000"
             style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
           >
+            <motion.div 
+              animate={{ opacity: [0.6, 1, 0.6], scale: [0.95, 1.05, 0.95] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -inset-3 rounded-full bg-gradient-to-r from-neon-cyan to-neon-purple blur-[20px] -z-10" 
+            />
             <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-neon-cyan to-neon-purple opacity-70 blur-xl group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-spin-slow" style={{ animationDuration: '8s' }} />
             <div className="relative w-full h-full rounded-full border-2 border-white/20 overflow-hidden bg-[#050505]">
               <FallbackImage 
@@ -149,7 +154,7 @@ export default function Home() {
           />
 
           <motion.div variants={itemVariants} className="space-y-4">
-            <h1 className="text-[clamp(1.5rem,8.5vw,4.5rem)] md:text-7xl font-bold tracking-tight overflow-hidden leading-tight whitespace-nowrap">
+            <h1 className="text-[clamp(1.5rem,8.5vw,4.5rem)] md:text-7xl font-bold tracking-tight overflow-hidden leading-tight whitespace-nowrap text-glow-cyan">
               <motion.span 
                 className="text-transparent bg-clip-text text-gradient inline-block"
                 variants={textVariants}
@@ -185,7 +190,7 @@ export default function Home() {
             <MagneticElement>
               <a
                 href="#work"
-                className="group relative px-8 py-3 rounded-full bg-white text-black font-semibold overflow-hidden transition-all hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.4)] block"
+                className="group relative px-8 py-3 rounded-full bg-white text-black font-semibold overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.4)] block"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   View My Work
@@ -200,7 +205,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 download="Mohamed_Romy_CV.pdf"
-                className="conic-button px-8 py-3 rounded-full text-white font-medium flex items-center gap-2 group shadow-[0_0_20px_rgba(176,38,255,0.2)] block"
+                className="conic-button px-8 py-3 rounded-full text-white font-medium flex items-center gap-2 group shadow-[0_0_20px_rgba(176,38,255,0.2)] active:scale-95 transition-transform block"
               >
                 <Download className="w-4 h-4 relative z-10 group-hover:-translate-y-1 transition-transform" />
                 <span className="relative z-10">Download CV</span>
