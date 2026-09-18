@@ -169,10 +169,10 @@ const ParticleNetwork = () => {
           />
         </bufferGeometry>
         <pointsMaterial
-          size={0.08}
+          size={0.12}
           vertexColors
           transparent
-          opacity={0.9}
+          opacity={1.0}
           sizeAttenuation
           blending={THREE.AdditiveBlending}
         />

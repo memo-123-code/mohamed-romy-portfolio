@@ -5,6 +5,7 @@ import { BadgeCheck, Images } from "lucide-react";
 import FallbackImage from "./FallbackImage";
 import { portfolioData } from "@/lib/data";
 import TiltCard from "./TiltCard";
+import MobileCarousel from "./MobileCarousel";
 import { useLightbox } from "./LightboxProvider";
 
 export default function CertificationsGallery() {
@@ -51,12 +52,13 @@ export default function CertificationsGallery() {
         <p className="text-gray-400 max-w-xl">Verified credentials demonstrating expertise across software development and mechanical engineering domains.</p>
       </motion.div>
 
+      {/* Desktop Grid View */}
       <motion.div 
         variants={container}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.15 }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 pb-8 sm:pb-0"
+        className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 pb-8 sm:pb-0"
       >
         {certifications.map((cert, index) => (
           <motion.div 
@@ -105,6 +107,52 @@ export default function CertificationsGallery() {
           </motion.div>
         ))}
       </motion.div>
+
+      {/* Mobile Carousel View */}
+      <MobileCarousel>
+        {certifications.map((cert, index) => (
+          <div key={index} className="w-full h-full pb-4">
+            <TiltCard className="h-full">
+              <div className="glass-card animated-border rounded-2xl overflow-hidden group transition-all transform-gpu will-change-transform duration-500 h-full flex flex-col relative z-10 bg-[#0a0a0c]/80 active:scale-95">
+                {/* Image Section */}
+                <div className="w-full h-40 bg-black/40 border-b border-white/5 relative overflow-hidden flex-shrink-0 group/image">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] to-transparent z-10 pointer-events-none" />
+                  
+                  <div className="w-full h-full relative z-0">
+                    <FallbackImage 
+                      src={cert.images[0]} 
+                      alt={cert.name} 
+                      fill 
+                      className="object-cover opacity-70 group-hover/image:opacity-100 group-hover/image:scale-110 transition-all duration-700" 
+                    />
+                  </div>
+
+                  {/* View Gallery Overlay */}
+                  <div 
+                    className="absolute inset-0 z-20 flex items-center justify-center bg-black/60 opacity-0 group-hover/image:opacity-100 transition-opacity cursor-pointer backdrop-blur-sm"
+                    onClick={() => openLightbox(cert.images, 0, cert.name)}
+                  >
+                    <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full border border-white/20 text-white font-medium text-sm hover:bg-white/20 transition-colors">
+                      <Images className="w-4 h-4" />
+                      View Gallery ({cert.images.length})
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Content Section */}
+                <div className="p-5 flex-1 flex flex-col relative z-20">
+                  <h3 className="font-bold text-white leading-snug mb-2 group-hover:text-neon-cyan transition-colors line-clamp-2">
+                    {cert.name}
+                  </h3>
+                  <p className="text-sm text-gray-400 mt-auto">
+                    {cert.issuer}
+                  </p>
+                </div>
+              </div>
+            </TiltCard>
+          </div>
+        ))}
+      </MobileCarousel>
     </section>
   );
 }
