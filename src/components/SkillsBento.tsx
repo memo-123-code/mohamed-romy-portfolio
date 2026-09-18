@@ -27,10 +27,10 @@ const colorMap = {
 };
 
 const shadowMap = {
-  mechanical: "md:hover:shadow-[0_0_30px_rgba(251,146,60,0.15)] shadow-[0_0_15px_rgba(251,146,60,0.05)] md:shadow-none active:shadow-[0_0_20px_rgba(251,146,60,0.2)]",
-  software: "md:hover:shadow-[0_0_30px_rgba(96,165,250,0.15)] shadow-[0_0_15px_rgba(96,165,250,0.05)] md:shadow-none active:shadow-[0_0_20px_rgba(96,165,250,0.2)]",
-  automation: "md:hover:shadow-[0_0_30px_rgba(74,222,128,0.15)] shadow-[0_0_15px_rgba(74,222,128,0.05)] md:shadow-none active:shadow-[0_0_20px_rgba(74,222,128,0.2)]",
-  ai: "md:hover:shadow-[0_0_30px_rgba(192,132,252,0.15)] shadow-[0_0_15px_rgba(192,132,252,0.05)] md:shadow-none active:shadow-[0_0_20px_rgba(192,132,252,0.2)]"
+  mechanical: "hover:shadow-[0_0_30px_rgba(251,146,60,0.15)]",
+  software: "hover:shadow-[0_0_30px_rgba(96,165,250,0.15)]",
+  automation: "hover:shadow-[0_0_30px_rgba(74,222,128,0.15)]",
+  ai: "hover:shadow-[0_0_30px_rgba(192,132,252,0.15)]"
 };
 
 export default function SkillsBento() {
@@ -47,10 +47,6 @@ export default function SkillsBento() {
 
   const cardVariant: Variants = {
     hidden: (index: number) => {
-      const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-      if (isMobile) {
-        return { opacity: 0, y: 30, x: 0, scale: 0.95 };
-      }
       const isLeft = index % 2 === 0;
       const isTop = index < 2;
       return { 
