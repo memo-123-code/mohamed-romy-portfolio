@@ -154,7 +154,7 @@ export default function Home() {
           />
 
           <motion.div variants={itemVariants} className="space-y-4">
-            <h1 className="text-[clamp(1.5rem,8.5vw,4.5rem)] md:text-7xl font-bold tracking-tight overflow-hidden leading-tight whitespace-nowrap text-glow-cyan">
+            <h1 className="hidden md:block text-[clamp(1.5rem,8.5vw,4.5rem)] md:text-7xl font-bold tracking-tight overflow-hidden leading-tight whitespace-nowrap text-glow-cyan">
               <motion.span 
                 className="text-transparent bg-clip-text text-gradient inline-block"
                 variants={textVariants}

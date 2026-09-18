@@ -82,10 +82,10 @@ export default function FilterableGrid() {
               <motion.div
                 key={item.title}
                 layout
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 50, rotateX: 15, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
+                transition={{ type: "spring", stiffness: 60, damping: 20, delay: index * 0.1 }}
                 viewport={{ once: false, amount: 0.15 }}
                 className={`h-full w-full ${isFeaturedProject ? "md:col-span-2 lg:col-span-2 row-span-2" : "col-span-1"}`}
               >
