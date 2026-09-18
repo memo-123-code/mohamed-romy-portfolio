@@ -192,9 +192,9 @@ const ParticleNetwork = () => {
 export default function NeuralBackground() {
   // We use pointerEvents: 'none' to allow clicks to pass through to the actual site
   return (
-    <div className="fixed inset-0 z-[-2] bg-[#020202] pointer-events-none transform-gpu will-change-transform">
-      <Canvas camera={{ position: [0, 0, 8], fov: 60 }} dpr={[1, 2]}>
-        <fog attach="fog" args={["#020202", 3, 12]} />
+    <div className="fixed inset-0 z-[-2] pointer-events-none transform-gpu will-change-transform" style={{ width: '100vw', height: '100vh', display: 'block' }}>
+      <Canvas camera={{ position: [0, 0, 8], fov: 60 }} dpr={[1, 2]} style={{ display: 'block', width: '100vw', height: '100vh' }}>
+        <fog attach="fog" args={["#050505", 3, 12]} />
         <ParticleNetwork />
       </Canvas>
     </div>
