@@ -38,10 +38,12 @@ export default function Home() {
     };
     document.addEventListener("visibilitychange", handleVisibilityChange);
 
-    // Mouse Tracking for Profile
+    // Mouse Tracking for Profile (Disabled on Mobile Touch)
     const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e;
       const { innerWidth, innerHeight } = window;
+      if (innerWidth < 768) return; // Prevent "stuck" parallax on touch devices
+      
+      const { clientX, clientY } = e;
       const x = (clientX / innerWidth - 0.5) * 2;
       const y = (clientY / innerHeight - 0.5) * 2;
       mouseX.set(x);
@@ -295,8 +297,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer Spacer for Floating Dock */}
-      <div className="h-24 w-full" />
+      {/* Premium Footer */}
+      <footer className="w-full relative z-10 border-t border-white/5 bg-[#050505]/80 backdrop-blur-xl mt-10">
+        <div className="max-w-5xl mx-auto px-6 py-8 md:py-12 flex flex-col items-center gap-6">
+          <div className="flex items-center gap-6 text-gray-400">
+            <MagneticElement>
+              <a href={personal.github} target="_blank" rel="noopener noreferrer" className="hover:text-neon-cyan transition-colors p-2 block">
+                <FaGithub className="w-5 h-5" />
+              </a>
+            </MagneticElement>
+            <MagneticElement>
+              <a href={personal.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-neon-cyan transition-colors p-2 block">
+                <FaLinkedin className="w-5 h-5" />
+              </a>
+            </MagneticElement>
+            <MagneticElement>
+              <a href={`mailto:${personal.email}`} className="hover:text-neon-cyan transition-colors p-2 block">
+                <Mail className="w-5 h-5" />
+              </a>
+            </MagneticElement>
+          </div>
+          <p className="text-sm text-gray-500 font-medium text-center">
+            &copy; {new Date().getFullYear()} Mohamed Ahmed Romy. All rights reserved.
+          </p>
+        </div>
+        {/* Extra bottom padding to prevent overlap with mobile browser UI & FloatingDock */}
+        <div className="h-28 md:h-12 w-full" />
+      </footer>
     </div>
   );
 }

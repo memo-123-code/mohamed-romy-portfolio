@@ -133,8 +133,8 @@ export default function FloatingDock() {
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "spring", stiffness: 250, damping: 25 }}
-              className="md:hidden fixed top-0 right-0 bottom-0 z-[100] w-64 bg-[#050505]/80 backdrop-blur-3xl border-l border-white/10 shadow-[-20px_0_40px_rgba(0,0,0,0.5)] flex flex-col px-6 py-20"
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="md:hidden fixed top-0 right-0 bottom-0 z-[100] w-64 bg-[#0a0a0f]/75 backdrop-blur-[16px] border-l border-white/5 shadow-[-20px_0_40px_rgba(0,0,0,0.5)] flex flex-col px-6 py-20"
             >
               <button 
                 onClick={() => setIsOpen(false)}
