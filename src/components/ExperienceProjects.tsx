@@ -63,7 +63,7 @@ export default function ExperienceProjects() {
   ];
 
   return (
-    <section id="projects" className="w-full max-w-5xl mx-auto py-24 px-6 relative">
+    <section id="projects" className="w-full max-w-5xl mx-auto py-16 md:py-24 px-6 relative">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -151,7 +151,7 @@ export default function ExperienceProjects() {
                 {/* Content Side */}
                 <div className={`w-full md:w-1/2 ${isEven ? 'md:pl-12' : 'md:pr-12'}`}>
                   <TiltCard>
-                    <div className="glass-card animated-border rounded-2xl relative overflow-hidden group transition-all duration-500 bg-[#0a0a0c]/80 z-20 flex flex-col hover:shadow-[0_0_30px_rgba(0,243,255,0.15)]">
+                    <div className="glass-card animated-border rounded-2xl relative overflow-hidden group transition-all transform-gpu will-change-transform duration-500 bg-[#0a0a0c]/80 z-20 flex flex-col hover:shadow-[0_0_30px_rgba(0,243,255,0.15)]">
                       
                       {/* Image Wrapper at the top of the card */}
                       {item.images && (

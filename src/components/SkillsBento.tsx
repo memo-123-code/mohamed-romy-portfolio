@@ -66,7 +66,7 @@ export default function SkillsBento() {
   };
 
   return (
-    <section id="skills" className="w-full max-w-6xl mx-auto py-24 px-6">
+    <section id="skills" className="w-full max-w-6xl mx-auto py-16 md:py-24 px-6">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

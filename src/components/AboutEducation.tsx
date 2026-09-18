@@ -13,7 +13,7 @@ export default function AboutEducation() {
   };
 
   return (
-    <section id="about" className="w-full max-w-6xl mx-auto py-24 px-6 relative">
+    <section id="about" className="w-full max-w-6xl mx-auto py-16 md:py-24 px-6 relative">
       <motion.div 
         initial="hidden" 
         whileInView="visible" 

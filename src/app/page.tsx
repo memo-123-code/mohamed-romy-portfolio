@@ -68,20 +68,21 @@ export default function Home() {
   };
 
   const textVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 40, scale: 0.9 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { type: "spring", stiffness: 100, damping: 10 },
+      scale: 1,
+      transition: { type: "spring", stiffness: 80, damping: 20, mass: 1 },
     },
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { type: "spring", stiffness: 100, damping: 10 },
+      transition: { type: "spring", stiffness: 80, damping: 20 },
     },
   };
 
@@ -148,7 +149,7 @@ export default function Home() {
           />
 
           <motion.div variants={itemVariants} className="space-y-4">
-            <h1 className="text-[clamp(2.5rem,10vw,4.5rem)] md:text-7xl font-bold tracking-tight overflow-hidden leading-tight">
+            <h1 className="text-[clamp(2rem,11vw,4.5rem)] md:text-7xl font-bold tracking-tight overflow-hidden leading-tight">
               <motion.span 
                 className="text-transparent bg-clip-text text-gradient inline-block"
                 variants={textVariants}

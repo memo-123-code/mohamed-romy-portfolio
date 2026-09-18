@@ -31,7 +31,7 @@ export default function FilterableGrid() {
   );
 
   return (
-    <section id="work" className="w-full max-w-7xl mx-auto py-24 px-6 relative z-10">
+    <section id="work" className="w-full max-w-7xl mx-auto py-16 md:py-24 px-6 relative z-10">
       <div className="flex flex-col items-center mb-16">
         <h2 className="text-3xl md:text-6xl font-bold mb-8 text-transparent bg-clip-text text-gradient">
           <div className="overflow-hidden inline-block py-2">
@@ -90,7 +90,7 @@ export default function FilterableGrid() {
                 className={`snap-center shrink-0 flex-none w-[85vw] max-w-[85vw] md:max-w-none md:w-auto h-full ${isFeaturedProject ? "md:col-span-2 lg:col-span-2 row-span-2" : "col-span-1"}`}
               >
                 <TiltCard className="h-full">
-                  <div className="glass-card animated-border rounded-3xl p-1 relative overflow-hidden group transition-all duration-500 h-full flex flex-col bg-black/60 backdrop-blur-2xl md:bg-[#050505]/90 md:backdrop-blur-none active:scale-95 hover:shadow-[0_0_30px_rgba(0,243,255,0.15)]" style={{ transformStyle: "preserve-3d" }}>
+                  <div className="glass-card animated-border rounded-3xl p-1 relative overflow-hidden group transition-all transform-gpu will-change-transform duration-500 h-full flex flex-col bg-black/60 backdrop-blur-2xl md:bg-[#050505]/90 md:backdrop-blur-none active:scale-95 hover:shadow-[0_0_30px_rgba(0,243,255,0.15)]" style={{ transformStyle: "preserve-3d" }}>
                     
                     {/* Image Placeholder */}
                     <div className={`w-full bg-black/60 relative overflow-hidden rounded-t-3xl transition-transform duration-500 group-hover:translate-z-20 ${isFeaturedProject ? "h-64" : "h-40"}`}>

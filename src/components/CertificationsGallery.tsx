@@ -25,7 +25,7 @@ export default function CertificationsGallery() {
   };
 
   return (
-    <section id="certifications" className="w-full max-w-6xl mx-auto py-24 px-6 mb-20">
+    <section id="certifications" className="w-full max-w-6xl mx-auto py-16 md:py-24 px-6 mb-20">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -65,7 +65,7 @@ export default function CertificationsGallery() {
             className="snap-center shrink-0 flex-none w-[85vw] max-w-[85vw] sm:max-w-none sm:w-auto h-full"
           >
             <TiltCard className="h-full">
-              <div className="glass-card animated-border rounded-2xl overflow-hidden group transition-all duration-500 h-full flex flex-col relative z-10 bg-black/60 backdrop-blur-2xl sm:bg-[#0a0a0c]/80 sm:backdrop-blur-none active:scale-95 hover:shadow-[0_0_30px_rgba(0,243,255,0.15)]">
+              <div className="glass-card animated-border rounded-2xl overflow-hidden group transition-all transform-gpu will-change-transform duration-500 h-full flex flex-col relative z-10 bg-black/60 backdrop-blur-2xl sm:bg-[#0a0a0c]/80 sm:backdrop-blur-none active:scale-95 hover:shadow-[0_0_30px_rgba(0,243,255,0.15)]">
                 {/* Image Section */}
                 <div className="w-full h-40 bg-black/40 border-b border-white/5 relative overflow-hidden flex-shrink-0 group/image">
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] to-transparent z-10 pointer-events-none" />
