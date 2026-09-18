@@ -72,7 +72,7 @@ export default function FilterableGrid() {
 
       <motion.div 
         layout
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+        className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory hide-scrollbar gap-6 pb-8 md:pb-0 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
       >
         <AnimatePresence>
           {filteredItems.map((item, index) => {
@@ -87,10 +87,10 @@ export default function FilterableGrid() {
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
                 viewport={{ once: false, amount: 0.15 }}
-                className={`${isFeaturedProject ? "md:col-span-2 lg:col-span-2 row-span-2" : "col-span-1"}`}
+                className={`snap-center shrink-0 w-[85vw] md:w-auto h-full ${isFeaturedProject ? "md:col-span-2 lg:col-span-2 row-span-2" : "col-span-1"}`}
               >
                 <TiltCard className="h-full">
-                  <div className="glass-card animated-border rounded-3xl p-1 relative overflow-hidden group transition-all duration-500 h-full flex flex-col bg-[#050505]/90 hover:shadow-[0_0_30px_rgba(0,243,255,0.15)]" style={{ transformStyle: "preserve-3d" }}>
+                  <div className="glass-card animated-border rounded-3xl p-1 relative overflow-hidden group transition-all duration-500 h-full flex flex-col bg-black/60 backdrop-blur-2xl md:bg-[#050505]/90 md:backdrop-blur-none active:scale-95 hover:shadow-[0_0_30px_rgba(0,243,255,0.15)]" style={{ transformStyle: "preserve-3d" }}>
                     
                     {/* Image Placeholder */}
                     <div className={`w-full bg-black/60 relative overflow-hidden rounded-t-3xl transition-transform duration-500 group-hover:translate-z-20 ${isFeaturedProject ? "h-64" : "h-40"}`}>

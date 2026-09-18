@@ -48,12 +48,16 @@ export default function WorkshopsGallery() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.15 }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        className="flex sm:grid overflow-x-auto sm:overflow-visible snap-x snap-mandatory hide-scrollbar gap-6 pb-8 sm:pb-0 sm:grid-cols-2 lg:grid-cols-4"
       >
         {workshops.map((workshop, index) => (
-          <motion.div key={workshop.name + index} variants={item} className="h-full">
+          <motion.div 
+            key={index}
+            variants={item}
+            className="snap-center shrink-0 w-[80vw] sm:w-auto h-full"
+          >
             <TiltCard className="h-full">
-              <div className="glass-card animated-border rounded-2xl overflow-hidden group transition-all duration-500 h-full flex flex-col relative z-10 bg-[#0a0a0c]/80 hover:shadow-[0_0_30px_rgba(0,243,255,0.15)]">
+              <div className="glass-card animated-border rounded-2xl overflow-hidden group transition-all duration-500 h-full flex flex-col relative z-10 bg-black/60 backdrop-blur-2xl sm:bg-[#0a0a0c]/80 sm:backdrop-blur-none active:scale-95 hover:shadow-[0_0_30px_rgba(0,243,255,0.15)]">
                 {/* Image Section */}
                 <div className="w-full h-40 bg-black/40 border-b border-white/5 relative overflow-hidden flex-shrink-0 group/image">
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] to-transparent z-10 pointer-events-none" />

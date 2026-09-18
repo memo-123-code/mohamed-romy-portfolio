@@ -123,6 +123,15 @@
   .conic-button:hover::after {
     background: rgba(0, 243, 255, 0.1);
   }
+
+  /* Hide Scrollbar for Carousels */
+  .hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @keyframes textShine {
